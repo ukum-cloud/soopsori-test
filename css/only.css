@@ -1,0 +1,213 @@
+/* style.css에 있는 마진값을 0으로 만듦으로써 */
+/* .title-box에 준 가운데 정렬값이 정확히 가운데로 맞게 */
+.only-you-wrap .title {
+    margin-bottom: 0;
+}
+
+.title-box {
+    /* h2와 ul을 정력시키고 양끝으로 붙이기 */
+    /* 3. h2, ul 가운데정렬시키기 하지만 style.css에서 h2 밑에 마진값을
+    준게 있음으로 정확히 가운데 정렬이 되지 않는다. */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.only-tab-list {
+    /* li요소 옆으로 간격주기 */
+    display: flex;
+    gap: 10px;
+}
+
+.only-tab-list li a {
+    /* li들을 블록으로 사이즈를 갖을 수있게 만든후 외곽선주기*/
+    /* 외곽선에 모서리 둥글기를 주고 폰트사이즈 키우기 */
+    display: block;
+    padding: 12px 20px;
+    border: 1px solid #092729;
+    border-radius: 30px;
+    font-size: 1.13rem;
+}
+
+/* 액티브 상태가 아닌 hover상태에서 태두리 회색으로 호버되게 */
+.only-tab-list li a:hover {
+    background: #ddd;
+}
+
+.only-tab-list li.active a {
+    /* 선택된 상황을 가정하여 배경색상변경, 폰트 두께조절, 폰트 색상변경 */
+    background: #092729;
+    color: #fff;
+    font-weight: 600;
+}
+
+.only-slider-list {
+    /* [이미지,텍스트 묶음이] 한줄로 정렬 간격맞추기 양 사이드로 보내기 */
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.only-slider-list>div {
+    /* 호버될 이미지를 숨기는 기준점 */
+    /* 영역확인을 위해 외곽선 추가 */
+    position: relative;
+    /* border: 1px solid blue; */
+    padding-bottom: 2%;
+    border-radius: 40px 40px 0 40px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.only-slider-list>div img {
+    /* 이미지 사이즈 맞추기 */
+    width: 100%;
+    height: 100%;
+    /* 이미지나 비디오 사이즈 가로사이즈에 맞게 맞추기 */
+    object-fit: cover;
+}
+
+.only-slider-list>div .hover-img {
+    /* 호버될 이미지 숨기기 */
+    /* 이미지가 겹쳐있는 상태이지만 opacity값을 주어서 안보이는 상태 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.only-slider-list>div .text-box {
+    /* left값을 주고 */
+    position: absolute;
+    bottom: 50px;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    font-size: 1.13rem;
+    background-color: rgba(0, 0, 255, 0.1);
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+}
+
+.only-slider-list>div .radius {
+    width: 75px;
+    height: 75px;
+    background: red;
+    background: #fff;
+    border-radius: 40px 0 0 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.only-slider-list>div .radius:before {
+    content: "";
+    display: block;
+    background-color: green;
+    background: transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    left: -80px;
+    bottom: 0;
+    /* 이해를돕기위해 삭제하지 않음 */
+    /* 흰색으로 바꿔도 무방 */
+    box-shadow: 40px 40px 0 yellow;
+    box-shadow: 40px 40px 0 #fff;
+}
+
+.only-slider-list>div .radius:after {
+    content: "";
+    display: block;
+    background-color: blue;
+    background: transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    top: -80px;
+    box-shadow: 40px 40px 0 yellow;
+    box-shadow: 40px 40px 0 #fff;
+}
+
+.only-slider-list>div:hover .hover-img {
+    /* 이미지를 호버하면 투명도가 0에서 1로변하면서 보인다. */
+    opacity: 1;
+}
+
+.only-slider-list>div:hover .text-box {
+    color: #fff;
+    font-weight: 300;
+}
+
+.only-slider-list>div::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    /* 백그라운드 이미지와 색상을 둘다 한번에 줄 수있다. */
+    background: #092729 url(../image/arrow-right.svg) no-repeat center center;
+    z-index: 1000;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.only-slider-list>div:hover::after {
+    opacity: 1;
+    right: 0;
+    bottom: 0;
+}
+
+.selection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selection>.sel-right {
+    /* 위아래로 자식들을 붙이고 싶을때도 flex */
+    display: flex;
+    /* 세로로 가운데 정렬 */
+    flex-direction: column;
+    /* 위아래 가운데 */
+    justify-content: center;
+    /* 좌우가운데 */
+    align-items: center;
+    gap: 40px;
+    padding-left: 95px;
+}
+
+.selection>.sel-right img {
+    width: 100%;
+}
+
+.sel-right .text-box {
+    text-align: center;
+}
+
+.sel-right .text-box strong {
+    font-size: 2rem;
+}
+
+.sel-right .text-box p {
+    font-size: 1.13rem;
+    margin: 20px 0;
+}
+
+.sel-right .text-box .more{
+    background: var(--default);
+    color: #fff;
+    /* 블록이면 위의 요소와 사이즈가 맞춰진다 */
+    /* 사이즈 분리시키고싶으면 인라인 블록으로 */
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+}

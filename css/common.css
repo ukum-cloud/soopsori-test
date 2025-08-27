@@ -1,0 +1,42 @@
+/* 공통요소 */
+/* 모든 여백 제거 */
+/* 테두리와 여백이 포함된 크기가 width, height안에 포함되도록 */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* li 장식제거 */
+li{
+    list-style:none;
+}
+/* a 밑줄제거,글자색 */
+a{text-decoration: none;
+    /* color: #222; */
+    /* 부모의 color속성을 상속받아서 사용하겠다. */
+    /* inherit라는 속성자체가 부모의 넓이,크기등 상속받는다. */
+    color:inherit;
+}
+/* img,video 위아래 정렬 */
+img{
+    vertical-align: middle;
+}
+/* em,i,address 기울기정렬 */
+em,i,address{
+    font-style: normal;
+}
+/* blind */
+.blind{
+    position: absolute;
+    top: -99999px;
+}
+/* body */
+body{
+    font-family:Pretendard,"돋움", sans-serif;
+    /* font-size:16px; */
+    color: #111;
+}
+
+
+
+
